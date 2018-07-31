@@ -1,0 +1,199 @@
+<div class="container">
+  <h1>Questionnaire investisseur</h1>
+  <form novalidate [formGroup]="reponseFrm" (ngSubmit)="addReponse(reponseFrm.value)" *ngIf="reponseFrm">
+      <mat-vertical-stepper [linear]="true" #stepper>
+          <mat-step  label="Description de l'investisseur">
+          <!-- <mat-step [completed]="reponseFrm.controls['nom'].valid|| reponseFrm.controls['prenom'].valid" label="Description de l'investisseur"> -->
+            
+            <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-2">
+                  <label for="nom">Nom de famille</label>
+                </div>
+                <div class="col-md-5">
+                        <input  name="nom" formControlName="nom" class="form-control"  [formControl]="reponseFrm.controls['nom']" required>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-2">
+                  <label for="prenom">Prénom</label>
+                </div>
+                <div class="col-md-5 ">
+                        <input  name="prenom" formControlName="prenom" class="form-control" [formControl]="reponseFrm.controls['prenom']" required >
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                <div class="col-md-2">
+                  <label for="genre" style="line-height: 50px;">Genre</label>
+                </div>
+                <div class="col-md-5">
+                    <mat-radio-group class="example-radio-group " required formControlName="genre">
+                        <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="male">
+                            Masculin
+                        </mat-radio-button>
+                        <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="femelle">
+                            Féminin
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-2">
+                      <label for="age">Âge</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input  name="age" formControlName="age" class="form-control" [formControl]="reponseFrm.controls['age']" required >
+                    </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-2">
+                      <label for="etat" style="line-height: 50px;">Etat civil</label>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-radio-group class="example-radio-group " required formControlName="etat">
+                            <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="celibataire">
+                                Célibataire
+                            </mat-radio-button>
+                            <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="encouple">
+                                En couple
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-2">
+                      <label for="emploi">Emploi</label>
+                    </div>
+                    <div class="col-md-5 ">
+                            <input  name="emploi" formControlName="emploi" class="form-control" [formControl]="reponseFrm.controls['emploi']" required >
+                    </div>
+             </div>
+
+            <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-2">
+                      <label style="line-height: 70px;" for="securite">Sécurité d'emploi</label>
+                    </div>
+                    <div class="col-md-5 ">
+                            <bar-rating [showText]="true" [rate]="1" name="securite" [formControl] = "reponseFrm.controls['securite']" formControlName="securite" [titles]="['very Bad','Bad', 'Mediocre' , 'Good', 'Awesome']" [max]="5" [theme]="'square'"></bar-rating>
+                    </div>
+             </div>
+             
+             <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-3">
+                      <label for="enfantcharge" >Enfant à charge</label>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-radio-group class="example-radio-group " required formControlName="enfantcharge">
+                            <mat-radio-button *ngFor="let ch of charges; let i = index" style="padding-left: 0;" class="example-radio-button col-md-3"  [value]='i'>
+                                {{ch}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+            </div>
+
+             <div class="col-md-11 col-md-offset-1">
+                    <div class="col-md-3">
+                      <label for="autrecharge" >Autre(s) personne(s) à charge</label>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-radio-group class="example-radio-group " required formControlName="autrecharge">
+                            <mat-radio-button *ngFor="let ch of charges; let i = index" style="padding-left: 0;" class="example-radio-button col-md-3"  [value]='i'>
+                                {{ch}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+            </div>
+                    
+            <div>
+                    <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
+                    <!-- <button [disabled]="!reponseFrm.controls['nom'].valid|| !reponseFrm.controls['prenom'].valid" type="button" mat-button matStepperNext>Next</button> -->
+            </div>
+          </mat-step>
+
+          <mat-step label="Objectif de placement " class="col-md-12">
+
+                <div *ngFor="let quest of objectifs" >
+                    <div class="qst-title col-md-12" ><label> {{quest.text}} </label></div>
+                    <div class="qst-options form-group col-md-12">
+                        <mat-radio-group class="example-radio-group col-md-12" required [formControlName]="quest.tag">
+                            <mat-radio-button *ngFor="let opt of quest.options; let i = index" style="padding-left: 0;" class="example-radio-button col-md-12"  [value]='opt.valeur'>
+                                {{opt.text}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>    
+                </div>
+                <div class="col-md-12">
+                    <div class="qst-title col-md-12" >Avez-vous d’un rendement minimal de vos placements à des fins du revenu ?</div>
+                    <div class="qst-options form-group col-md-7">
+                         <input  name="minrendement" formControlName="minrendement" class="form-control"  [formControl]="reponseFrm.controls['minrendement']" required>
+                    </div>    
+                </div>
+                
+                <div>
+                    <button mat-button matStepperPrevious type="button">Back</button>
+                    <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+
+          <mat-step label="Tolérance au risque  " class="col-md-12">
+
+                <div *ngFor="let quest of tolerances" >
+                    <div class="qst-title col-md-12" ><label for="">{{quest.text}}</label></div>
+                    <div class="qst-options form-group col-md-12">
+                        <mat-radio-group class="example-radio-group col-md-12" required [formControlName]="quest.tag">
+                            <mat-radio-button *ngFor="let opt of quest.options; let i = index" style="padding-left: 0;" class="example-radio-button col-md-12"  [value]='opt.valeur'>
+                                {{opt.text}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>    
+                </div>
+                <div class="col-md-12">
+                        <div class="qst-title col-md-12" ><label for="">En ce qui a trait au rendement d’un placement, quelle la baisse maximale de la valeur de votre placement seriez-vous en mesure de l’accepter ?</label></div>
+                        <div class="qst-options form-group col-md-7">
+                             <input  name="maxpert" formControlName="maxpert" class="form-control"  [formControl]="reponseFrm.controls['maxpert']" required>
+                        </div>    
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious type="button">Back</button>
+                    <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+
+          <mat-step label="Renseignement sur l’investisseur " class="col-md-12">
+
+                <div *ngFor="let quest of renseignements; let c = index" >
+                    <div class="qst-title col-md-12" ><label>{{quest.text}}</label></div>
+                    <div class="qst-options form-group col-md-12">
+                        <mat-radio-group class="example-radio-group col-md-12" required [formControlName]="quest.tag">
+                            <mat-radio-button *ngFor="let opt of quest.options; let i = index" style="padding-left: 0;" class="example-radio-button col-md-12"  [value]='opt.valeur'>
+                                {{opt.text}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div> 
+                    <div *ngIf="c==0">
+                        <div class="qst-title col-md-12" >{{values.text}}</div>
+                        <div *ngFor="let city of values.options; let i = index" formArrayName="renseignement2">
+                             <mat-checkbox [value]="city" [formControlName]="i">{{city}}</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div>
+                    <button mat-button matStepperPrevious type="button">Back</button>
+                </div>
+            </mat-step>
+
+        </mat-vertical-stepper>
+        <button type="submit" class="btn btn-success" [disabled]="!reponseFrm.valid">Envoyer</button>
+  </form>
+ 
+</div> 
+
+<!-- <div [hidden]="q1.valid || q1.pristine"
+  class="alert alert-danger">
+Name is required
+</div> -->
