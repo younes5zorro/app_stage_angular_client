@@ -13,3 +13,12 @@
     display: block ;
     color: #4278f5 ;
 }
+
+@font-face {
+    font-family: NexaLight;
+    src: url('./assets/NexaLight.otf');
+}
+
+div {
+    font-family: NexaLight;
+}

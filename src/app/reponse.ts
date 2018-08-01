@@ -19,7 +19,9 @@ export class Reponse {
     tolerance4: number;
     renseignement1: number;
     renseignement2: boolean[];
+    renseignement22?: number;
     renseignement3: number;
     minrendement: string;
     maxpert: string;
+    created?: Date;
 }

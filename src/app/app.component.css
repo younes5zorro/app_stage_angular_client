@@ -1,2 +1,54 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import url('../assets/left.min.css');
+
+.logo{
+    height: 75px;
+    width: 126.5%;
+    background-color: #304c58;
+}
+.navbar-fixed-left[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0]{
+    /* position: relative; */
+}
+
+@media (min-width: 768px){
+.navbar-fixed-left[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0] {
+    width: 237px;
+    height: 100vh;
+    border-radius: 0;
+}
+}
+.navbar-inverse[_ngcontent-c0] {
+    background-color: #304c58;
+    border-color: #304c58;
+}
+.navbar-inverse {
+    background-color: #304c58;
+    border-color: #304c58
+};
+
+.navbar-brand > img {
+    /* height: 100px; */
+}
+.navbar-brand[_ngcontent-c0][_ngcontent-c0] > img[_ngcontent-c0][_ngcontent-c0]{
+    display: block;
+    height: 190%;
+    margin-top: 10px;
+}
+.icon[_ngcontent-c0] {
+
+    height: 30px;
+    width: 30px;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+.icon1[_ngcontent-c0] {
+
+    height: 25px;
+    width: 25px;
+    margin-left: 27px;
+    margin-right: 9px
+}
+.navbar-nav{
+    margin-top: 60px;
+}
