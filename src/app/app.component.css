@@ -4,8 +4,21 @@
 
 .logo{
     height: 75px;
-    width: 126.5%;
+    width: 100%;
     background-color: #304c58;
+   
+}
+.titre[_ngcontent-c0] {
+    height: 41px;
+    line-height: 41px;
+    width: 100%;
+    padding-left: 423px;
+    background-color: #f3f4f8;
+}
+.herders{
+    width: 126.5%;
+    position: fixed;
+    z-index: 100;
 }
 .navbar-fixed-left[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0]{
     /* position: relative; */
@@ -37,18 +50,29 @@
 }
 .icon[_ngcontent-c0] {
 
-    height: 30px;
-    width: 30px;
-    margin-left: 9px;
+    height: 20px;
+    width: 20px;
+    margin-left: 3px;
     margin-right: 9px;
 }
 .icon1[_ngcontent-c0] {
 
-    height: 25px;
-    width: 25px;
-    margin-left: 27px;
+    height: 15px;
+    width: 15px;
+    margin-left: 15px;
     margin-right: 9px
 }
 .navbar-nav{
     margin-top: 60px;
+}
+
+.navbar-fixed-left[_ngcontent-c0] .navbar-collapse[_ngcontent-c0] .navbar-nav[_ngcontent-c0] > li[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0] .navbar-collapse[_ngcontent-c0] .navbar-nav[_ngcontent-c0] > li[_ngcontent-c0]{
+    height: 30px;
+    font-size: 15px;
+}
+.navbar-fixed-left[_ngcontent-c0] .navbar-header[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0] .navbar-header[_ngcontent-c0]{
+    margin-bottom: 50px;
+}
+.content{
+    margin-top: 130px;
 }

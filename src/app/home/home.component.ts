@@ -10,9 +10,12 @@ import { Reponse } from '../reponse';
 export class HomeComponent implements OnInit {
 
   reponses: Array<Reponse>;
+  titre: String;
+
   constructor(private _reponseService: ReponseService) { }
 
   ngOnInit() {
+    this.titre = 'Profil investisseur';
     this._reponseService.getReponses()
     .subscribe(res => this.reponses = res);
   }

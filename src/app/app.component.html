@@ -1,61 +1,3 @@
-<!-- <div class="logo">
-    <img src="../assets/logo.png" alt="">
-</div>
-
-  <nav class="navbar navbar-inverse navbar-fixed-left">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Project name</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a data-class="navbar-fixed-left">
-              <i class="fa fa-arrow-left"></i>
-              Fixed Left
-            </a>
-          </li>
-          <li>
-            <a data-class="navbar-fixed-top">
-              <i class="fa fa-arrow-up"></i>
-              Fixed Top
-              <small>(original)</small>
-            </a>
-          </li>
-          <li>
-            <a data-class="navbar-fixed-right">
-              <i class="fa fa-arrow-right"></i>
-              Fixed Right
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-
   <nav class="navbar navbar-inverse navbar-fixed-left">
     <div class="container">
       <div class="navbar-header">
@@ -65,18 +7,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button> -->
-        <a class="navbar-brand" href="/"><img class="nb_logo" src="../assets/logo.png" alt=""></a>
+        <a class="navbar-brand" routerLink="/"><img class="nb_logo" src="../assets/logo.png" alt=""></a>
       </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;"><a style="color: aliceblue"><img src="../assets/rebo.png" class="icon" alt="">Robo-advisor</a></li>
-            <li><a href="#"><img src="../assets/profil.png" class="icon1" alt="">Profil investisseur</a></li>
+            <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;padding-bottom: 43px;"><a style="color: aliceblue"><img src="../assets/rebo.png" class="icon" alt="">Robo-advisor</a></li>
+            <li><a routerLink="/form" routerLinkActive="active"><img src="../assets/profil.png" class="icon1" alt="">Profil investisseur</a></li>
             <li><a href="#"><img src="../assets/composition.png" class="icon1" alt="">Composition</a></li>
             <li><a href="#"><img src="../assets/doc.png" class="icon1" alt="">Documentation</a></li>
             
         </ul>
         <ul class="nav navbar-nav">
-            <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;"><a style="color: aliceblue"><img src="../assets/asset.png" class="icon" alt="">Asset management </a></li>
+            <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;padding-bottom: 43px;"><a style="color: aliceblue"><img src="../assets/asset.png" class="icon" alt="">Asset management </a></li>
             <li><a href="#"><img src="../assets/gestion.png" class="icon1" alt="">Gestion</a></li>
             <li><a href="#"><img src="../assets/tran.png" class="icon1" alt="">Transaction</a></li>
             <li><a href="#"><img src="../assets/rep.png" class="icon1" alt="">Reporting</a></li>
@@ -87,10 +29,14 @@
   </nav>
 
   <div class="container">
+    <div class="herders">
+      <div class="logo"></div>
+     <div class="titre">Profil investisseur</div>
+    </div>
     
-    <div class="logo"></div>
-
-    <router-outlet></router-outlet> 
+    <div class="content">  <router-outlet></router-outlet> 
+    </div>
+    
 
   </div>
  
