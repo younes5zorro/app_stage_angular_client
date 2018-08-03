@@ -17,7 +17,6 @@ export class FormComponent implements OnInit {
   reponseFrm: FormGroup;
   reponses: Array<Reponse>;
 
-  charges = ['Oui', 'Non'];
   values = {
     tag: 'renseignement2',
     text: 'Dans le futur, est-ce que l\'un ou plusieurs des événements suivants pourraient affecter votre équilibre budgétaire ET \
@@ -36,7 +35,6 @@ export class FormComponent implements OnInit {
         'Une santé précaire ou la pratique d\'activité à haut risque'
     ]
     };
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
   public renseignements = [
     { text: 'Quel est votre âge ?',
@@ -152,19 +150,16 @@ export class FormComponent implements OnInit {
 
     const opts = {
       'nom' : [null, Validators.compose([Validators.required])],
-      'prenom' : [null, Validators.compose([Validators.required])],
       'genre' : [null, Validators.compose([Validators.required])],
-      'age' : [null, Validators.compose([Validators.required])],
+      'age' : [null, Validators.compose([Validators.required, Validators.min(18)])],
       'etat' : [null, Validators.compose([Validators.required])],
       'emploi' : [null, Validators.compose([Validators.required])],
       'securite' : [1, Validators.compose([Validators.required])],
-      'enfantcharge' : [null, Validators.compose([Validators.required])],
-      'autrecharge' : [null, Validators.compose([Validators.required])],
       'renseignement1': [null, Validators.compose([Validators.required])],
       'renseignement2': this.fb.array(this.values.options.map(x => !1)),
       'renseignement3': [null, Validators.compose([Validators.required])],
-      'minrendement': [null, Validators.compose([Validators.required])],
-      'maxpert': [null, Validators.compose([Validators.required])],
+      'minrendement': [null, Validators.compose([Validators.required, Validators.min(0), Validators.max(100)])],
+      'maxpert': [null, Validators.compose([Validators.required, Validators.min(0), Validators.max(100)])],
     };
 
     for (let index = 0; index < this.objectifs.length; index++) {

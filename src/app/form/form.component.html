@@ -1,111 +1,78 @@
 <div class="container">
   <form novalidate [formGroup]="reponseFrm" (ngSubmit)="addReponse(reponseFrm.value)" *ngIf="reponseFrm">
       <mat-vertical-stepper [linear]="true" #stepper>
-          <mat-step  label="Description de l'investisseur">
+          <mat-step  [completed]="reponseFrm.controls['nom'].valid &&  reponseFrm.controls['genre'].valid && reponseFrm.controls['age'].valid && reponseFrm.controls['etat'].valid && reponseFrm.controls['emploi'].valid" label="Description de l'investisseur">
           <!-- <mat-step [completed]="reponseFrm.controls['nom'].valid|| reponseFrm.controls['prenom'].valid" label="Description de l'investisseur"> -->
             
-            <div class="col-md-11 col-md-offset-1">
+            <div class="row1 col-md-11 col-md-offset-1">
                 <div class="col-md-2">
-                  <label for="nom">Nom de famille</label>
+                  <label for="nom">Nom & prénom</label>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                         <input  name="nom" formControlName="nom" class="form-control"  [formControl]="reponseFrm.controls['nom']" required>
                 </div>
             </div>
 
-            <div class="col-md-11 col-md-offset-1">
+            <div class="row1 col-md-11 col-md-offset-1">
                 <div class="col-md-2">
-                  <label for="prenom">Prénom</label>
+                  <label for="genre" >Genre</label>
                 </div>
-                <div class="col-md-5 ">
-                        <input  name="prenom" formControlName="prenom" class="form-control" [formControl]="reponseFrm.controls['prenom']" required >
-                </div>
-            </div>
-
-            <div class="col-md-11 col-md-offset-1">
-                <div class="col-md-2">
-                  <label for="genre" style="line-height: 50px;">Genre</label>
-                </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <mat-radio-group class="example-radio-group " required formControlName="genre">
-                        <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="male">
+                        <mat-radio-button  class="example-radio-button col-md-3"    value="male">
                             Masculin
                         </mat-radio-button>
-                        <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="femelle">
+                        <mat-radio-button  class="example-radio-button col-md-3"  value="femelle">
                             Féminin
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
             </div>
 
-            <div class="col-md-11 col-md-offset-1">
+           
+            <div class="row1 col-md-11 col-md-offset-1">
                     <div class="col-md-2">
                       <label for="age">Âge</label>
                     </div>
-                    <div class="col-md-1">
-                        <input  name="age" formControlName="age" class="form-control" [formControl]="reponseFrm.controls['age']" required >
+                    <div class="col-md-2">
+                        <input pattern="[0-9]*" name="age" formControlName="age" class="form-control" [formControl]="reponseFrm.controls['age']" required >
                     </div>
             </div>
 
-            <div class="col-md-11 col-md-offset-1">
+            <div class="row1 col-md-11 col-md-offset-1">
                     <div class="col-md-2">
-                      <label for="etat" style="line-height: 50px;">Etat civil</label>
+                      <label for="etat" >Etat civil</label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <mat-radio-group class="example-radio-group " required formControlName="etat">
-                            <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="celibataire">
-                                Célibataire
+                            <mat-radio-button  class="example-radio-button col-md-3"    value="celibataire">
+                                    Célibataire
                             </mat-radio-button>
-                            <mat-radio-button style="padding-left: 0;" class="example-radio-button col-md-12"  value="encouple">
-                                En couple
+                            <mat-radio-button  class="example-radio-button col-md-3"  value="encouple">
+                                    En couple
                             </mat-radio-button>
                         </mat-radio-group>
                     </div>
             </div>
 
-            <div class="col-md-11 col-md-offset-1">
+            <div class="row1 col-md-11 col-md-offset-1">
                     <div class="col-md-2">
                       <label for="emploi">Emploi</label>
                     </div>
-                    <div class="col-md-5 ">
+                    <div class="col-md-6">
                             <input  name="emploi" formControlName="emploi" class="form-control" [formControl]="reponseFrm.controls['emploi']" required >
                     </div>
              </div>
 
-            <div class="col-md-11 col-md-offset-1">
+            <div class="row1 col-md-11 col-md-offset-1">
                     <div class="col-md-2">
                       <label style="line-height: 70px;" for="securite">Sécurité d'emploi</label>
                     </div>
-                    <div class="col-md-5 ">
-                            <bar-rating [showText]="true" [rate]="1" name="securite" [formControl] = "reponseFrm.controls['securite']" formControlName="securite" [titles]="['very Bad','Bad', 'Mediocre' , 'Good', 'Awesome']" [max]="5" [theme]="'square'"></bar-rating>
+                    <div class="col-md-6">
+                            <bar-rating  [rate]="1" name="securite" [formControl] = "reponseFrm.controls['securite']" formControlName="securite" [max]="5" [theme]="'square'"></bar-rating>
                     </div>
              </div>
-             
-             <div class="col-md-11 col-md-offset-1">
-                    <div class="col-md-3">
-                      <label for="enfantcharge" >Enfant à charge</label>
-                    </div>
-                    <div class="col-md-5">
-                        <mat-radio-group class="example-radio-group " required formControlName="enfantcharge">
-                            <mat-radio-button *ngFor="let ch of charges; let i = index" style="padding-left: 0;" class="example-radio-button col-md-3"  [value]='i'>
-                                {{ch}}
-                            </mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-            </div>
-
-             <div class="col-md-11 col-md-offset-1">
-                    <div class="col-md-3">
-                      <label for="autrecharge" >Autre(s) personne(s) à charge</label>
-                    </div>
-                    <div class="col-md-5">
-                        <mat-radio-group class="example-radio-group " required formControlName="autrecharge">
-                            <mat-radio-button *ngFor="let ch of charges; let i = index" style="padding-left: 0;" class="example-radio-button col-md-3"  [value]='i'>
-                                {{ch}}
-                            </mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-            </div>
+      
                     
             <div>
                     <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
@@ -113,7 +80,7 @@
             </div>
           </mat-step>
 
-          <mat-step label="Objectif de placement " class="col-md-12">
+          <mat-step [completed]="reponseFrm.controls['object1'].valid &&  reponseFrm.controls['object2'].valid && reponseFrm.controls['object3'].valid && reponseFrm.controls['horizon'].valid && reponseFrm.controls['minrendement'].valid" label="Objectif de placement " class="col-md-12">
 
                 <div *ngFor="let quest of objectifs" >
                     <div class="qst-title col-md-12" ><label> {{quest.text}} </label></div>
@@ -127,8 +94,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="qst-title col-md-12" >Avez-vous d’un rendement minimal de vos placements à des fins du revenu ?</div>
-                    <div class="qst-options form-group col-md-7">
-                         <input  name="minrendement" formControlName="minrendement" class="form-control"  [formControl]="reponseFrm.controls['minrendement']" required>
+                    <div class="qst-options form-group col-md-3">
+                         <input pattern="[0-9]*" name="minrendement" formControlName="minrendement" class="form-control"  [formControl]="reponseFrm.controls['minrendement']" required>
                     </div>    
                 </div>
                 
@@ -152,8 +119,8 @@
                 </div>
                 <div class="col-md-12">
                         <div class="qst-title col-md-12" ><label for="">En ce qui a trait au rendement d’un placement, quelle la baisse maximale de la valeur de votre placement seriez-vous en mesure de l’accepter ?</label></div>
-                        <div class="qst-options form-group col-md-7">
-                             <input  name="maxpert" formControlName="maxpert" class="form-control"  [formControl]="reponseFrm.controls['maxpert']" required>
+                        <div class="qst-options form-group col-md-3">
+                             <input  pattern="[0-9]*" name="maxpert" formControlName="maxpert" class="form-control"  [formControl]="reponseFrm.controls['maxpert']" required>
                         </div>    
                 </div>
                 <div>
@@ -175,7 +142,7 @@
                     </div> 
                     <div *ngIf="c==0">
                         <div class="qst-title col-md-12" >{{values.text}}</div>
-                        <div *ngFor="let city of values.options; let i = index" formArrayName="renseignement2">
+                        <div *ngFor="let city of values.options; let i = index" style="margin-left: 30px;" formArrayName="renseignement2">
                              <mat-checkbox [value]="city" [formControlName]="i">{{city}}</mat-checkbox>
                         </div>
                     </div>

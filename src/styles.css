@@ -3,22 +3,12 @@
 @import '~ngx-bar-rating/themes/br-square-theme.css';
 
 
-.br-square .br-text  {
-    letter-spacing: 2px ;
-    font-size: 16px ;
-    clear: both ;
-    width: 178px ;
-    text-align: center ;
-    font-weight: 600 ;
-    display: block ;
-    color: #4278f5 ;
-}
 
 @font-face {
     font-family: NexaLight;
     src: url('./assets/NexaLight.otf');
 }
 
-div {
+div ,button{
     font-family: NexaLight;
 }

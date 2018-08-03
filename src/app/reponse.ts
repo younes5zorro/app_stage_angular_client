@@ -1,14 +1,11 @@
 export class Reponse {
     _id: string;
     nom: string;
-    prenom: string;
     genre: string;
     age: number;
     etat: string;
     emploi: string;
     securite: number;
-    enfantcharge: number;
-    autrecharge: number;
     object1: number;
     object2: number;
     object3: number;
