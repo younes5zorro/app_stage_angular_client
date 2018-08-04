@@ -18,7 +18,7 @@ export class Reponse {
     renseignement2: boolean[];
     renseignement22?: number;
     renseignement3: number;
-    minrendement: string;
-    maxpert: string;
+    minrendement: number;
+    maxpert: number;
     created?: Date;
 }

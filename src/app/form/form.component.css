@@ -114,6 +114,14 @@ width: 92%;
   background-color: #62e0f7;
 
 }
+
+::ng-deep .br-square .br-unit{
+  border: 2px solid #fff ;
+  color: #fff ;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
 ::ng-deep .br-square .br-unit.br-active,
 ::ng-deep .br-square .br-unit.br-selected{
     border: 2px solid #62e0f7;
@@ -121,24 +129,10 @@ width: 92%;
     background-color: #62e0f7;
     border-radius: 10px;
 }
-::ng-deep .br-unit[_ngcontent-c4]{
-  border: 2px solid #fff;
-  color: #fff;
-  background-color: #fff;
-  border-radius: 10px;
-}
 
-
-::ng-deep .br-square .br-text  {
-  letter-spacing: 2px ;
-  font-size: 16px ;
-  clear: both ;
-  width: 178px ;
-  text-align: center ;
-  font-weight: 600 ;
-  display: block ;
-  color: #62e0f7 ;
-}
+/* ::ng-deep .mat-radio-label-content{
+  font-size: 13px;
+} */
 .qst-title{
   font-size: 15px;
   font-weight: bold;
