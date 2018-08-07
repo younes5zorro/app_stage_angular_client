@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   constructor(private _reponseService: ReponseService) { }
 
   ngOnInit() {
-    this.titre = 'Profil investisseur';
     this._reponseService.getReponses()
     .subscribe(res => this.reponses = res);
   }

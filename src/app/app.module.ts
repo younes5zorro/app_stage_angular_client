@@ -17,13 +17,16 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule, MatButtonModule, MatCheckboxModule, MatRadioModule, MatInputModule } from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { WindowRef } from './window-ref';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     HomeComponent,
-    ReponseComponent
+    ReponseComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { BarRatingModule } from 'ngx-bar-rating';
     MatRadioModule,
     MatInputModule
   ],
-  providers: [ReponseService],
+  providers: [ReponseService, WindowRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
