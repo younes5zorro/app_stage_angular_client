@@ -16,6 +16,9 @@ export class ReponseService {
   getForDash() {
     return this._http.get('http://localhost:3000/api/dash').pipe(map(result => this.result = result.json()));
   }
+  getActions() {
+    return this._http.get('http://localhost:3000/api/actions').pipe(map(result => this.result = result.json()));
+  }
   getReponse(id) {
     return this._http.get('http://localhost:3000/api/reponse/' + id)
       .pipe(map(result => this.result = result.json()));

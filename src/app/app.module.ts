@@ -14,12 +14,12 @@ import { ReponseComponent } from './reponse/reponse.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatStepperModule, MatButtonModule, MatCheckboxModule, MatRadioModule, MatInputModule } from '@angular/material';
+import {MatStepperModule, MatButtonModule, MatCheckboxModule, MatRadioModule, MatInputModule, MatSelectModule } from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WindowRef } from './window-ref';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { WindowRef } from './window-ref';
     BarRatingModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatInputModule
+    MatInputModule,
+    NgSelectModule
   ],
   providers: [ReponseService, WindowRef],
   bootstrap: [AppComponent]

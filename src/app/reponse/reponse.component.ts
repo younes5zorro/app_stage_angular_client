@@ -14,7 +14,7 @@ export class ReponseComponent implements OnInit {
 
   ngOnInit() {
     this.aR.params.subscribe((params) => {
-      let id: any = params['id'];
+      const id: any = params['id'];
 
       this._reponseService.getReponse(id)
         .subscribe(res => this.reponse = res);
