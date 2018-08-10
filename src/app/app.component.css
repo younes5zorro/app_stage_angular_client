@@ -5,7 +5,7 @@
 .logo{
     height: 75px;
     width: 100%;
-    background-color: #304c58;
+    background-color: #2e3d5d;
    
 }
 .titre[_ngcontent-c0] {
@@ -17,6 +17,7 @@
     box-shadow: 0 6px 16px -4px #c3c3c3;
     color: #aeb6c6;
     font-size: 18px;
+    font-weight: bold;
 }
 .herders{
     width: 126.5%;
@@ -35,12 +36,12 @@
 }
 }
 .navbar-inverse[_ngcontent-c0] {
-    background-color: #304c58;
-    border-color: #304c58;
+    background-color: #2e3d5d;
+    border-color: #2e3d5d;
 }
 .navbar-inverse {
-    background-color: #304c58;
-    border-color: #304c58
+    background-color: #2e3d5d;
+    border-color: #2e3d5d;
 };
 
 .navbar-brand > img {
@@ -67,6 +68,7 @@
 }
 .navbar-nav{
     margin-top: 60px;
+    font-weight: bold;
 }
 
 .navbar-fixed-left[_ngcontent-c0] .navbar-collapse[_ngcontent-c0] .navbar-nav[_ngcontent-c0] > li[_ngcontent-c0], .navbar-fixed-right[_ngcontent-c0] .navbar-collapse[_ngcontent-c0] .navbar-nav[_ngcontent-c0] > li[_ngcontent-c0]{
@@ -79,4 +81,70 @@
 .content{
     margin-top: 124px;
     background-color: #f3f4f8;
+}
+
+.active{
+    color: #00c8e7 !important;   
+    
+}
+.acceuil{
+    background-image: url("../assets/bgc.png");
+    background-size:cover;
+    height: 100vh;
+    /* width: 100%; */
+}
+.acceuil_Roobo{  
+    background-image: url("../assets/kks.png");
+    background-size:cover;
+    height: 640px;
+    width: 478px;
+  
+}
+/* .acceuil_Roobo img{
+    height: 640px;
+} */
+.accuil_lien{
+    height: 50px;
+    width: 350px;
+    background-color: #f09115;
+    border-radius: 35px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+.accuil_version{
+   
+    width: 350px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 9px;
+}
+.accuil_version a,
+.accuil_lien a{
+    
+    color: white;
+}
+.acceuil_btn{
+  
+    position: relative;
+}
+.accuil_logo{
+    position: relative;
+    top: 495px;
+    left: 38px;
+}
+.accuil_logo img{
+    height: 49px;
+    width: 286px;
+}
+.acceuil_btn{
+    position: relative;
+    right: 50px;
+}
+.acceuil_section{
+    position: relative;
+    top: 320px;
 }

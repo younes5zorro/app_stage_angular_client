@@ -1,3 +1,4 @@
+  <div *ngIf="_router.url !== '/'">
   <nav class="navbar navbar-inverse navbar-fixed-left">
     <div class="container">
       <div class="navbar-header">
@@ -13,14 +14,14 @@
         <ul class="nav navbar-nav">
             <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;padding-bottom: 43px;"><a style="color: aliceblue"><img src="../assets/rebo.png" class="icon" alt="">Robo-advisor</a></li>
             <li><a routerLink="/form" routerLinkActive="active"><img src="../assets/profil.png" class="icon1" alt="">Profil investisseur</a></li>
-            <li><a routerLink="/dashboard" routerLinkActive="active"><img src="../assets/composition.png" class="icon1" alt="">Composition</a></li>
+            <li><a href="#" ><img src="../assets/composition.png" class="icon1" alt="">Composition</a></li>
             <li><a href="#"><img src="../assets/doc.png" class="icon1" alt="">Documentation</a></li>
             
         </ul>
         <ul class="nav navbar-nav">
             <li style="border-top: 1px solid #4c7080;border-bottom: 1px solid #4c7080;padding-bottom: 43px;"><a style="color: aliceblue"><img src="../assets/asset.png" class="icon" alt="">Asset management </a></li>
+            <li><a routerLink="/dashboard" routerLinkActive="active"><img src="../assets/tran.png" class="icon1" alt="">Transaction</a></li>
             <li><a href="#"><img src="../assets/gestion.png" class="icon1" alt="">Gestion</a></li>
-            <li><a href="#"><img src="../assets/tran.png" class="icon1" alt="">Transaction</a></li>
             <li><a href="#"><img src="../assets/rep.png" class="icon1" alt="">Reporting</a></li>
             
         </ul>
@@ -39,4 +40,24 @@
     
 
   </div>
- 
+ </div>
+ <div class="acceuil col-md-12" *ngIf="_router.url === '/'" >
+      <div class="acceuil_Roobo col-md-5">
+        <!-- <img src="../assets/kks.png" alt=""> -->
+      </div>
+      <div class="acceuil_btn col-md-5 col-md-offset-2">
+       <div class="acceuil_section col-md-12">
+        <div class="col-md-12">
+            <div class="accuil_lien">
+                <a routerLink="/form">Let’s Start</a>
+              </div>
+        </div>
+          <div class="accuil_version col-md-12">
+            Robo-Advisor V 1.0
+          </div>
+        </div>
+        <div class="accuil_logo col-md-12">
+            <img src="../assets/logo.png" alt="">
+        </div>
+      </div>
+  </div>
