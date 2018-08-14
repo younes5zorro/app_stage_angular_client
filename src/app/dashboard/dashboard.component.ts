@@ -48,6 +48,9 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
         initialDisplayUnit: 'd'
        },
       area: { height: 350 },
+      legend: {
+        enabled: true
+      },
       series: [
         {
             data: {
@@ -55,18 +58,31 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
               aggregation: 'avg',
             },
             type: 'line',
-            name: 'Cours',
+            name: slg,
             style: {
                 lineWidth: 2,
                 lineColor: '#09c',
             }
+        },
+        {
+          data: {
+            index: 2,
+            aggregation: 'avg',
+          },
+          type: 'line',
+          name: 'Masi',
+          style: {
+              lineWidth: 2,
+              lineColor: '#58D68D',
+          }
         }
+
        ],
       data:
       {
         units: ['d'],
         timestampInSeconds: true,
-        url: 'http://localhost:3000/api/dash/' + slg
+        url: 'http://localhost:3000/api/masi/' + slg
       }
 
     });

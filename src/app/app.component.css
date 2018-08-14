@@ -122,10 +122,14 @@
     font-size: 16px;
     margin-top: 9px;
 }
-.accuil_version a,
+
 .accuil_lien a{
     
     color: white;
+}
+.accuil_lien a:hover{
+    
+    text-decoration: none;
 }
 .acceuil_btn{
   
