@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
   actions: any;
 
   slug = 'test';
+  selected: any;
 
   constructor(private winRef: WindowRef, private _reponseService: ReponseService) {
     // Add license key
@@ -30,7 +31,10 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
 
   }
   onChange(event) {
-    this.charge(event._id.slug);
+    if (event._id.slug !== this.selected) {
+      this.charge(event._id.slug, event._id.designation);
+      this.selected = event._id.slug;
+    }
   }
   ngOnInit() {
 
@@ -40,7 +44,7 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
 
   }
 
-  charge(slg) {
+  charge(slg, designation) {
     const TimeChart = this.zc.TimeChart;
     const chart = new TimeChart ({
       container: document.getElementById('chartPieChart'),
@@ -54,26 +58,26 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
       series: [
         {
             data: {
-              index: 1,
+              index: 3,
               aggregation: 'avg',
             },
             type: 'line',
-            name: slg,
+            name: designation,
             style: {
-                lineWidth: 2,
-                lineColor: '#09c',
+                lineWidth: 3,
+                lineColor: '#4812e0',
             }
         },
         {
           data: {
-            index: 2,
+            index: 4,
             aggregation: 'avg',
           },
           type: 'line',
-          name: 'Masi',
+          name: 'Benchmark',
           style: {
-              lineWidth: 2,
-              lineColor: '#58D68D',
+              lineWidth: 3,
+              lineColor: '#18d044',
           }
         }
 
@@ -88,7 +92,7 @@ cd5d0fa5aedcc49f72eb9ed343ddb95234af371ee4dd505ffbd79faac2ffd59d00a7e32b9a8a9';
     });
   }
   ngAfterViewInit(): void {
-    this.charge(this.slug);
+    // this.charge(this.slug);
   }
 
 

@@ -9,6 +9,9 @@
     src: url('./assets/NexaLight.otf');
 }
 
+body{
+    background-color: #FAFBFF !important;
+}
 div ,button{
     font-family: NexaLight;
 }

@@ -1,0 +1,59 @@
+.dashboard{
+    margin-left: 50px;
+}
+
+::ng-deep .ng-has-value .ng-value-container .ng-placeholder{
+    display: none;
+}
+
+::ng-deep .ng-select-container{
+    border: 1px #777c7f solid;
+    font-family: NexaLight;
+    font-weight: bold;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 10px;
+    color: #2743bd !important;
+    width: 115% !important;
+
+}
+
+::ng-deep .ng-select-container .ng-input{
+    padding-left: 20px;
+}
+
+::ng-deep .ng-select .ng-arrow-wrapper{
+    display: none;
+}
+
+::ng-deep .ng-select .ng-select-container:after{
+    border: none;
+}
+
+.chart-wrapper{
+    width: 627px;
+}
+#progressbar {
+    background-color: black;
+    border-radius: 13px; /* (height of inner div) / 2 + padding */
+  }
+  
+  #progressbar > div {
+     background-color: orange;
+     width: 40%; /* Adjust with JavaScript */
+     height: 10px;
+     border-radius: 10px;
+  }
+
+  .cards > .cars{
+    width: 291px;
+    float: left;
+    margin-right: 45px;
+    padding: 15px;
+    height: 100px;
+  }
+
+  .cards{
+    width: 125%;
+    height: 100px;
+  }
