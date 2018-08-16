@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '../../node_modules/@angular/router';
+import * as jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +24,14 @@ export class AppComponent {
         }
       } );
       // console.log(_router.url);
+  }
+  download() {
+    html2canvas(document.getElementById('report')).then(function(canvas) {
+      const img = canvas.toDataURL('image/png');
+      const doc = new jsPDF();
+
+      doc.addImage(img, 'JPEG', 10, 30, 190, 250);
+      doc.save('report.pdf');
+    });
   }
 }

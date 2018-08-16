@@ -31,11 +31,11 @@
 
   <div class="container">
     <div class="herders">
-      <div class="logo"></div>
+      <div class="logo"><img (click)="download()"  src="../assets/pdf.png" alt=""></div>
      <div class="titre">{{message}}</div>
     </div>
     
-    <div class="content">  <router-outlet></router-outlet> 
+    <div class="content" id="report">  <router-outlet></router-outlet> 
     </div>
     
 

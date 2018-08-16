@@ -7,7 +7,7 @@
 }
 
 ::ng-deep .ng-select-container{
-    border: 1px #777c7f solid;
+    /* border: 1px #777c7f solid; */
     font-family: NexaLight;
     font-weight: bold;
     border-radius: 15px;
@@ -15,6 +15,8 @@
     padding-right: 10px;
     color: #2743bd !important;
     width: 115% !important;
+    box-shadow: 0 2px 6px 1px grey;
+    
 
 }
 
@@ -34,26 +36,145 @@
     width: 627px;
 }
 #progressbar {
-    background-color: black;
+    background-color: #f3f4f8;
     border-radius: 13px; /* (height of inner div) / 2 + padding */
+    margin-bottom: 23px;
+    margin-top: 5px;
   }
   
-  #progressbar > div {
-     background-color: orange;
+#progressbar > div {
+     background-color: #542ed0;
      width: 40%; /* Adjust with JavaScript */
-     height: 10px;
+     height: 4px;
      border-radius: 10px;
   }
+  
+.card-2 #progressbar > div {
+     background-color: #39f1ea;
+     }
 
   .cards > .cars{
     width: 291px;
     float: left;
     margin-right: 45px;
     padding: 15px;
-    height: 100px;
+    height: 95px;
+    border-radius: 15px;
+    background-color: #fdfdfe;
+    font-size: 13pt;
+    font-weight: bold;
+    box-shadow: 0 2px 6px 1px grey;
   }
 
   .cards{
     width: 125%;
     height: 100px;
+  }
+
+  #prog_info .number{
+      position: relative;
+      right: 0;
+  }
+  
+  #prog_info .number{ float:right ; color: #75798a; }
+  #prog_info .info_label { float:left; color: #b8b8b8; }
+
+  .info_haut{
+    width: 110px;
+    float: left;
+  }
+
+  #prog_info img{ 
+    height: 42px;
+    margin-top: 7px;
+    width: 27px;
+  }
+
+  #prog_info img:first-child{ 
+    float: left;
+    margin-right: 9px;
+  }
+
+  #prog_info img:last-child{ 
+    float: right;
+  }
+  
+  .info_bas{
+    float: right;
+    border-left: 1px #a8acae solid;
+    width: 137px;
+    padding-left: 11px;
+  }
+  
+  .info_bas  div{
+    float: left;
+    width: 78%;
+  }
+  .card-3{
+      color: #75798a;
+      text-align: right;
+  }
+  .cours > div:first-child {
+      color: #b8b8b8;
+      margin-bottom: 5px;
+  }
+
+  .tweets{
+    width: 115%;
+    border: 1px #8a9194 solid;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 50px;
+    font-weight: bold;
+    margin-top: 27px;
+}
+.tweet_value .tweet_sentiment { 
+    float: right;    
+    padding-right: 20px; 
+    font-size: 16px;
+
+}
+
+.tweeet_header{
+    border: 1px #e5e6e8 solid;
+    width: 232px;
+    padding: 5px;
+    border-radius: 13px;
+    position: relative;
+    z-index: 106 !important;
+    top: -33px;
+    left: 5px;
+    color: #545c67;
+    background-color: #fafbfd;
+    padding-left: 22px;
+    font-size: 15px;
+  }
+  .tweet_centent .tweet_date{
+      color: #b8b8b8;
+  }
+  .tweet_value .tweet_text{
+        float:left ;
+        color: #3d6095;
+        font-size: 15px;
+        width: 75%;
+        height: 28px;
+  }
+  .tweet_centent{
+      clear: both;
+      margin-bottom: 47px;
+  }
+  .pos{
+        color: #21d79d;
+  }
+  .neg{
+    color: #d02139;
+  }
+  .neutre{
+    color: #b8b8b8;
+  }
+
+  #chartPieChart{
+    margin-top: 25px;
+    box-shadow: 0 2px 6px 1px grey;
+    border-radius: 11px;
   }

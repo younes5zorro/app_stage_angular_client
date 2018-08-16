@@ -16,6 +16,12 @@ export class ReponseService {
   getForDash() {
     return this._http.get('http://localhost:3000/api/dash').pipe(map(result => this.result = result.json()));
   }
+  getForCard(slug) {
+    return this._http.get('http://localhost:3000/api/card/' + slug).pipe(map(result => this.result = result.json()));
+  }
+  getTweets(slug) {
+    return this._http.get('http://localhost:3000/api/tweets/' + slug).pipe(map(result => this.result = result.json()));
+  }
   getActions() {
     return this._http.get('http://localhost:3000/api/actions').pipe(map(result => this.result = result.json()));
   }

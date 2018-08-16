@@ -79,7 +79,7 @@
     margin-bottom: 50px;
 }
 .content{
-    margin-top: 124px;
+    margin-top: 135px;
 }
 
 .active{
@@ -150,4 +150,11 @@
 .acceuil_section{
     position: relative;
     top: 320px;
+}
+.logo img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 60%;
+    top: 28%;
 }
