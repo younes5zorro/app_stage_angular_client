@@ -154,7 +154,38 @@
 .logo img{
     width: 30px;
     height: 30px;
-    position: relative;
+    /* position: relative;
     left: 60%;
-    top: 28%;
+    top: 28%; */
+}
+
+.logo_rigth div{
+    float: left;
+    margin-left: 25px;
+    
+}
+.logo_rigth{
+
+    position: relative;
+    left: 34%;
+    line-height: 75px;
+}
+.useer span{
+    color: #a8b1c2;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.serach_input input{
+    background-color: #324160;
+    border-radius: 10px;
+    border: 1px #9ca5b7 solid;
+    color: #9ca5b7;
+    line-height: 26px;
+    padding: 1px;
+    padding-left: 13px;
+}
+
+.serach_input input::placeholder{
+
+    color: #9ca5b7;
 }
