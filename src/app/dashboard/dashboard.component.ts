@@ -46,8 +46,8 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
   onChange(event) {
     if (event._id.slug !== this.selected) {
       this.selected = event._id.slug;
-      this.chargeDash(event._id.slug, event._id.designation);
       this.chargeCard(event._id.slug);
+      this.chargeDash(event._id.slug, event._id.designation);
     }
   }
   ngOnInit() {
@@ -109,6 +109,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
     this._reponseService.getForCard(slg)
     .subscribe(res => {
       this.cards = res;
+
     });
 
     this._reponseService.getTweets(slg)

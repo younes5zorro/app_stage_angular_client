@@ -1,92 +1,92 @@
 <div class="dashboard">
 
-  <div class="select">
-      <ng-select [items]="actions"
-      bindLabel="_id.designation"
-      bindValue="_id"
-      placeholder="Select Action"
-      (change)="onChange($event)"
-     >
-    </ng-select>
-  </div>
-  <div *ngIf="cards" class="cards">
-    <div class="cars card-1">
-        <div id="progressbar">
-            <!-- <div></div> -->
-            <div [style.width]="cards[3].result.cour+'%'"></div>
-          </div>
-        <div id="prog_info">
-            <span class="info_label">Dérnier cours</span><span class="number">{{cards[0].recent[0].dernierCours}} DH</span>
-        </div>
+    <div class="select">
+        <ng-select [items]="actions"
+        bindLabel="_id.designation"
+        bindValue="_id"
+        placeholder="Select Action"
+        (change)="onChange($event)"
+       >
+      </ng-select>
     </div>
-    <div class="cars card-2">
-        <div id="progressbar">
-            <!-- <div></div> -->
-            <div [style.width]="cards[3].result.cap+'%'"></div>
-          </div>
+    <div *ngIf="cards" class="cards">
+      <div class="cars card-1">
+          <div id="progressbar">
+              <!-- <div></div> -->
+              <div [style.width]="cards[3].result.cour+'%'"></div>
+            </div>
           <div id="prog_info">
-              <span class="info_label">Capitalisation</span><span class="number">{{cards[0].recent[0].cap}}</span>
+              <span class="info_label">Dérnier cours</span><span class="number">{{cards[0].recent[0].dernierCours}} DH</span>
           </div>
-    </div>
-    <div class="cars card-3">
-        <div id="prog_info">
-            <div class="info_haut">
-                <img src="../../assets/haut.png" alt="">
-                <div class="cours">
-                        <div>+ Haut</div>
-                        <div>{{cards[0].recent[0].Hjours}}</div>
-                </div>
-               
+      </div>
+      <div class="cars card-2">
+          <div id="progressbar">
+              <!-- <div></div> -->
+              <div [style.width]="cards[3].result.cap+'%'"></div>
             </div>
-            <div class="info_bas">
-                <div class="cours">
-                    <div>+ Baut</div>
-                    <div>{{cards[0].recent[0].Bjours}}</div>
-                </div>
-                <img src="../../assets/bas.png" alt="">
+            <div id="prog_info">
+                <span class="info_label">Capitalisation</span><span class="number">{{cards[0].recent[0].cap}}</span>
             </div>
-        </div>
-    </div>
-  </div>
-  <div class="dash_tab">
-    <div  class="chart-wrapper">
-        <div id="chartPieChart" class="chart"></div>
-    </div>
-    <div class="tableau">
-
-    </div>
-  </div>
-  <!-- <div  *ngIf="tweets"> -->
-    <div class="tweets" *ngIf="tweets && tweets[0].tweets[0] && tweets[0].tweets.length > 0">
-    <!-- <div *ngIf="tweets.twee" class="tweets"> -->
-        <div class="tweeet_header">
-                Nouvelles & médias
-        </div>
-    
-        <div *ngFor="let tweet of tweets[0].tweets"  class="tweet_centent">
-            <div class="tweet_date">{{tweet.date}}</div>
-            <div class="tweet_value">
-                <div class="tweet_text">	
-                        {{tweet.text}}
-                </div>
-                <div class="tweet_sentiment">
-                  <span *ngIf="tweet.polarity > 0" class="pos">Positif</span>
-                  <span *ngIf="tweet.polarity < 0"  class="neg">Negative</span>
-                  <span *ngIf="tweet.polarity === 0"   class="neutre">Neutre</span>
+      </div>
+      <div class="cars card-3">
+          <div id="prog_info">
+              <div class="info_haut">
+                  <img src="../../assets/haut.png" alt="">
+                  <div class="cours">
+                          <div>+ Haut</div>
+                          <div>{{cards[0].recent[0].Hjours}}</div>
                   </div>
-            </div>
-        </div>
-        
-        <!-- <div class="tweet_centent">
-            <div class="tweet_date">mar. août 7, 2018</div>
-            <div class="tweet_value">
-                <div class="tweet_text">	
-                        ATW  présente ses résultats financiers pour le deuxième trimestre clos le 30 juin 2018
-                </div>
-                <div class="tweet_sentiment">Positif</div>
-            </div>
-        </div> -->
+                 
+              </div>
+              <div class="info_bas">
+                  <div class="cours">
+                      <div>+ Baut</div>
+                      <div>{{cards[0].recent[0].Bjours}}</div>
+                  </div>
+                  <img src="../../assets/bas.png" alt="">
+              </div>
+          </div>
+      </div>
     </div>
-    <!-- </div> -->
+    <div class="dash_tab">
+      <div  class="chart-wrapper">
+          <div id="chartPieChart" class="chart"></div>
+      </div>
+      <div class="tableau">
   
-</div>
+      </div>
+    </div>
+    <!-- <div  *ngIf="tweets"> -->
+      <div class="tweets" *ngIf="tweets && tweets[0] && tweets[0].tweets[0] && tweets[0].tweets.length > 0">
+      <!-- <div *ngIf="tweets.twee" class="tweets"> -->
+          <div class="tweeet_header">
+                  Nouvelles & médias
+          </div>
+      
+          <div *ngFor="let tweet of tweets[0].tweets"  class="tweet_centent">
+              <div class="tweet_date">{{tweet.date}}</div>
+              <div class="tweet_value">
+                  <div class="tweet_text">	
+                          {{tweet.text}}
+                  </div>
+                  <div class="tweet_sentiment">
+                    <span *ngIf="tweet.polarity > 0" class="pos">Positif</span>
+                    <span *ngIf="tweet.polarity < 0"  class="neg">Negative</span>
+                    <span *ngIf="tweet.polarity === 0"   class="neutre">Neutre</span>
+                    </div>
+              </div>
+          </div>
+          
+          <!-- <div class="tweet_centent">
+              <div class="tweet_date">mar. août 7, 2018</div>
+              <div class="tweet_value">
+                  <div class="tweet_text">	
+                          ATW  présente ses résultats financiers pour le deuxième trimestre clos le 30 juin 2018
+                  </div>
+                  <div class="tweet_sentiment">Positif</div>
+              </div>
+          </div> -->
+      </div>
+      <!-- </div> -->
+    
+  </div>

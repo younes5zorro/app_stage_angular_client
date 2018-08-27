@@ -15,11 +15,12 @@
     padding-right: 10px;
     color: #2743bd !important;
     width: 115% !important;
-    box-shadow: 0 2px 6px 1px grey;
-    
-
+    box-shadow: 0 2px 6px 1px #dedede;
 }
 
+::ng-deep ng-dropdown-panel{
+    width: 115% !important;
+}
 ::ng-deep .ng-select-container .ng-input{
     padding-left: 20px;
 }
@@ -63,7 +64,7 @@
     background-color: #fdfdfe;
     font-size: 13pt;
     font-weight: bold;
-    box-shadow: 0 2px 6px 1px grey;
+    box-shadow: 0 2px 6px 1px #eeecec;
   }
 
   .cards{
@@ -175,6 +176,6 @@
 
   #chartPieChart{
     margin-top: 25px;
-    box-shadow: 0 2px 6px 1px grey;
+    box-shadow: 0 2px 6px 3px #e4e4e4;
     border-radius: 11px;
   }
