@@ -35,6 +35,8 @@
 
 .chart-wrapper{
     width: 627px;
+    float: left;
+    margin-bottom: 50px;
 }
 #progressbar {
     background-color: #f3f4f8;
@@ -128,6 +130,7 @@
     padding-bottom: 50px;
     font-weight: bold;
     margin-top: 27px;
+    clear: both;
 }
 .tweet_value .tweet_sentiment { 
     float: right;    
@@ -179,3 +182,41 @@
     box-shadow: 0 2px 6px 3px #e4e4e4;
     border-radius: 11px;
   }
+
+  .tab_row .number{ float:right ; color: #8c919b; }
+  .tab_row .info_label { float:left; color: #8c919b; }
+
+  .clear{
+      clear: both;
+  }
+  .tableau{
+      float: right;
+      width: 283px;
+      margin-top: 28px;
+  }
+  .dash_tab{
+    width: 114%;
+  }
+
+  .tab_title {
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px 1px #dedede;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #b8b8b8;
+  }   
+
+  .tab_row {
+    font-size: 17px;
+    font-weight: bold;
+    border-top: 1px #c3c6cc solid;
+    padding-top: 9px;
+    margin-bottom: 13px;
+    padding-bottom: 15px;
+}
+
+.ff{
+    border-top:none;
+}

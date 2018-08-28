@@ -22,6 +22,10 @@ export class ReponseService {
   getTweets(slug) {
     return this._http.get('http://localhost:3000/api/tweets/' + slug).pipe(map(result => this.result = result.json()));
   }
+
+  getCalculs(slug) {
+    return this._http.get('http://localhost:3000/api/rows2/' + slug).pipe(map(result => this.result = result.json()));
+  }
   getActions() {
     return this._http.get('http://localhost:3000/api/actions').pipe(map(result => this.result = result.json()));
   }

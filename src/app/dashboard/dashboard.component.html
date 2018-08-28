@@ -52,13 +52,41 @@
       <div  class="chart-wrapper">
           <div id="chartPieChart" class="chart"></div>
       </div>
-      <div class="tableau">
-  
+      <div class="tableau" *ngIf="calculs && calculs[0]" >
+        <div class="tab_section">
+            <div class="tab_title">Rendement</div>
+            <div class="tab_row ff">
+                <span class="info_label">Actions</span><span class="number">{{calculs[0].Rendclose | number}}</span>
+            </div>
+            <div class="clear"></div>
+            <div class="tab_row">
+                <span class="info_label">Benchmark</span><span class="number">{{calculs[0].Rendmasi | number}}</span>
+            </div>
+            <br>
+        </div>
+        <div class="clear"></div>
+        <div class="tab_section">
+            <div class="tab_title">Indicateurs de risque</div>
+            <div class="tab_row ff">
+                    <span class="info_label">Sharpe</span><span class="number">{{calculs[0].Sharpe | number}}</span>
+            </div>
+            <div class="clear"></div>
+            <div class="tab_row">
+                    <span class="info_label">Ratio d’information</span><span class="number">{{calculs[0].RI | number}}</span>
+            </div>
+            <div class="clear"></div>
+            <div class="tab_row">
+                    <span class="info_label">Tracking error</span><span class="number">{{calculs[0].TrackingError | number}}</span>
+            </div>
+            <div class="clear"></div>
+            <div class="tab_row">
+                    <span class="info_label">Volatilité</span><span class="number">{{calculs[0].Volatility | number}}</span>
+            </div>
+        </div>
       </div>
+
     </div>
-    <!-- <div  *ngIf="tweets"> -->
-      <div class="tweets" *ngIf="tweets && tweets[0] && tweets[0].tweets[0] && tweets[0].tweets.length > 0">
-      <!-- <div *ngIf="tweets.twee" class="tweets"> -->
+    <div class="tweets" *ngIf="tweets && tweets[0] && tweets[0].tweets[0] && tweets[0].tweets.length > 0">
           <div class="tweeet_header">
                   Nouvelles & médias
           </div>

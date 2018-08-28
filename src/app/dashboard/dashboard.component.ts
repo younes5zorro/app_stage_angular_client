@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
   selected: any = null;
   cards: any = null;
   tweets: any = null;
+  calculs: any = null;
   test: any;
 
 
@@ -115,7 +116,12 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
     this._reponseService.getTweets(slg)
     .subscribe(res => {
       this.tweets = res;
-      console.log( this.tweets);
+    });
+
+    this._reponseService.getCalculs(slg)
+    .subscribe(res => {
+      this.calculs = res;
+      console.log( this.calculs);
     });
 
   }
