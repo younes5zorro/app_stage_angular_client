@@ -20,6 +20,7 @@ import { BarRatingModule } from 'ngx-bar-rating';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WindowRef } from './window-ref';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CompositionComponent } from './composition/composition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HomeComponent,
     ReponseComponent,
     DashboardComponent,
+    CompositionComponent,
   ],
   imports: [
     BrowserModule,

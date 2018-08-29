@@ -91,10 +91,10 @@ export class FormComponent implements OnInit {
     { text: 'Quel est votre horizon de placement ?',
     tag: 'horizon',
     options: [
-      {valeur: 2, text: 'Inférieur à deux ans'},
-      {valeur: 4, text: 'De deux à cinq ans'},
-      {valeur: 8, text: 'De cinq à 10 ans'},
-      {valeur: 10, text: 'Supérieur à 10 ans'},
+      {valeur: 2, text: 'Inférieur à un mois'},
+      {valeur: 4, text: 'Entre 1 et 3 mois '},
+      {valeur: 8, text: 'Entre 3 et 6 mois '},
+      {valeur: 10, text: 'Entre 6 mois et 1 ans'},
     ]
   }];
 
