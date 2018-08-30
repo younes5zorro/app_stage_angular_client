@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { ReponseComponent } from './reponse/reponse.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CompositionComponent } from './composition/composition.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'composition',
+    component: CompositionComponent
   },
   {
     path: 'reponse/:id',
