@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
   tweets: any = null;
   calculs: any = null;
   test: any;
-
+  url  = 'https://robo-advisor-back.herokuapp.com';
+  // url  = 'http://localhost:3000';
 
   constructor(private winRef: WindowRef, private _reponseService: ReponseService) {
     // Add license key
@@ -99,7 +100,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
       {
         units: ['d'],
         timestampInSeconds: true,
-        url: 'http://localhost:3000/api/masi/' + slg
+        url: this.url + '/api/masi/' + slg
       }
 
     });

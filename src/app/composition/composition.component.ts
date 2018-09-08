@@ -9,6 +9,8 @@ import { ReponseService } from '../reponse.service';
 })
 export class CompositionComponent implements OnInit {
   private zc: any = zc;
+  url  = 'https://robo-advisor-back.herokuapp.com';
+  // url  = 'http://localhost:3000';
 
   constructor(private winRef: WindowRef, private _reponseService: ReponseService) {
      winRef.nativeWindow.ZoomChartsLicense = 'ZCP-2jt1vsq8o: ZoomCharts SDK for PeaQock';
@@ -35,7 +37,7 @@ export class CompositionComponent implements OnInit {
           enabled: false
       }
     },
-    data: { url: 'http://localhost:3000/api/comp' },
+    data: { url: this.url + '/api/comp' },
     labels: {enabled: false},
     legend: {
       enabled: true,
