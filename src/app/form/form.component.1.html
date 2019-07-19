@@ -2,7 +2,7 @@
   <form novalidate [formGroup]="reponseFrm" (ngSubmit)="addReponse(reponseFrm.value)" *ngIf="reponseFrm">
       <mat-vertical-stepper [linear]="true" #stepper>
           <mat-step  [completed]="reponseFrm.controls['nom'].valid &&  reponseFrm.controls['genre'].valid && reponseFrm.controls['age'].valid && reponseFrm.controls['etat'].valid && reponseFrm.controls['emploi'].valid" label="Description de l'investisseur">
-        
+
             <div class="row1 col-md-11 col-md-offset-1">
                 <div class="col-md-2">
                   <label for="nom">Nom & prénom</label>
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-           
+
             <div class="row1 col-md-11 col-md-offset-1">
                     <div class="col-md-2">
                       <label for="age">Âge</label>
@@ -71,8 +71,8 @@
                             <bar-rating  [rate]="1" name="securite" [formControl] = "reponseFrm.controls['securite']" formControlName="securite" [max]="5" [theme]="'square'"></bar-rating>
                     </div>
              </div>
-      
-                    
+
+
             <div>
                     <button type="button" mat-button matStepperNext>Next</button>
             </div>
@@ -87,15 +87,15 @@
                                 {{opt.text}}
                             </mat-radio-button>
                         </mat-radio-group>
-                    </div>    
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <div class="qst-title col-md-12" >Avez-vous d’un rendement minimal de vos placements à des fins du revenu ?</div>
                     <div class="qst-options form-group col-md-3">
                          <input pattern="[0-9]*" name="minrendement" formControlName="minrendement" class="form-control"  [formControl]="reponseFrm.controls['minrendement']" required>
-                    </div>    
+                    </div>
                 </div>
-                
+
                 <div>
                     <button mat-button matStepperPrevious type="button">Back</button>
                     <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
@@ -112,13 +112,13 @@
                                 {{opt.text}}
                             </mat-radio-button>
                         </mat-radio-group>
-                    </div>    
+                    </div>
                 </div>
                 <div class="col-md-12">
                         <div class="qst-title col-md-12" ><label for="">En ce qui a trait au rendement d’un placement, quelle la baisse maximale de la valeur de votre placement seriez-vous en mesure de l’accepter ?</label></div>
                         <div class="qst-options form-group col-md-3">
                              <input  pattern="[0-9]*" name="maxpert" formControlName="maxpert" class="form-control"  [formControl]="reponseFrm.controls['maxpert']" required>
-                        </div>    
+                        </div>
                 </div>
                 <div>
                     <button mat-button matStepperPrevious type="button">Back</button>
@@ -136,7 +136,7 @@
                                 {{opt.text}}
                             </mat-radio-button>
                         </mat-radio-group>
-                    </div> 
+                    </div>
                     <div *ngIf="c==0">
                         <div class="qst-title col-md-12" >{{values.text}}</div>
                         <div *ngFor="let city of values.options; let i = index" style="margin-left: 30px;" formArrayName="renseignement2">
@@ -144,17 +144,18 @@
                         </div>
                     </div>
                 </div>
-                    
+
                 <div>
                     <button mat-button matStepperPrevious type="button">Back</button>
                 </div>
             </mat-step>
 
         </mat-vertical-stepper>
-        <button type="submit" class="btn btn-success" [disabled]="!reponseFrm.valid"><img src="../../assets/validation.png" alt="">Validation</button>
+        <button type="submit" class="btn btn-success" ><img src="../../assets/validation.png" alt="">Validation</button>
+        <!-- <button type="submit" class="btn btn-success" [disabled]="!reponseFrm.valid"><img src="../../assets/validation.png" alt="">Validation</button> -->
   </form>
- 
-</div> 
+
+</div>
 
 <!-- <div [hidden]="q1.valid || q1.pristine"
   class="alert alert-danger">

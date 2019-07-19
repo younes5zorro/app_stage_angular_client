@@ -22,7 +22,7 @@
                         <mat-radio-button  class="example-radio-button col-md-3"    value="male">
                             Masculin
                         </mat-radio-button>
-                        <mat-radio-button  class="example-radio-button col-md-3"  value="femelle">
+                        <mat-radio-button  class="example-radio-button col-md-3"  value="femele">
                             Féminin
                         </mat-radio-button>
                     </mat-radio-group>
@@ -79,7 +79,7 @@
             </div>
           </mat-step>
 
-          <mat-step  label="Objectif de placement " class="col-md-12">
+          <mat-step  label="Situation financière et patrimoniale" class="col-md-12">
           <!-- <mat-step [completed]="reponseFrm.controls['object1'].valid &&  reponseFrm.controls['object2'].valid && reponseFrm.controls['object3'].valid && reponseFrm.controls['horizon'].valid && reponseFrm.controls['minrendement'].valid" label="Objectif de placement " class="col-md-12"> -->
                <div *ngFor="let quest of objectifs" >
                     <div class="qst-title col-md-12" ><label> {{quest.text}} </label></div>
@@ -91,12 +91,12 @@
                         </mat-radio-group>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="qst-title col-md-12" >Avez-vous d’un rendement minimal de vos placements à des fins du revenu ?</div>
                     <div class="qst-options form-group col-md-3">
                          <input pattern="[0-9]*" name="minrendement" formControlName="minrendement" class="form-control"  [formControl]="reponseFrm.controls['minrendement']" required>
                     </div>
-                </div>
+                </div> -->
 
                 <div>
                     <button mat-button matStepperPrevious type="button">Back</button>
@@ -104,7 +104,8 @@
                 </div>
             </mat-step>
 
-          <!-- <mat-step [completed]="reponseFrm.controls['tolerance1'].valid &&  reponseFrm.controls['tolerance2'].valid && reponseFrm.controls['tolerance3'].valid && reponseFrm.controls['tolerance4'].valid && reponseFrm.controls['maxpert'].valid" label="Tolérance au risque  " class="col-md-12">
+          <mat-step  label="Connaissance en matière d’investissement " class="col-md-12">
+          <!-- <mat-step [completed]="reponseFrm.controls['tolerance1'].valid &&  reponseFrm.controls['tolerance2'].valid && reponseFrm.controls['tolerance3'].valid && reponseFrm.controls['tolerance4'].valid && reponseFrm.controls['maxpert'].valid" label="Tolérance au risque  " class="col-md-12"> -->
 
                 <div *ngFor="let quest of tolerances" >
                     <div class="qst-title col-md-12" ><label for="">{{quest.text}}</label></div>
@@ -116,17 +117,17 @@
                         </mat-radio-group>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                         <div class="qst-title col-md-12" ><label for="">En ce qui a trait au rendement d’un placement, quelle la baisse maximale de la valeur de votre placement seriez-vous en mesure de l’accepter ?</label></div>
                         <div class="qst-options form-group col-md-3">
                              <input  pattern="[0-9]*" name="maxpert" formControlName="maxpert" class="form-control"  [formControl]="reponseFrm.controls['maxpert']" required>
                         </div>
-                </div>
+                </div> -->
                 <div>
                     <button mat-button matStepperPrevious type="button">Back</button>
-                    <button [disabled]="false" type="button" mat-button matStepperNext>Next</button>
+                    <!-- <button [disabled]="false" type="button" mat-button matStepperNext>Next</button> -->
                 </div>
-            </mat-step> -->
+            </mat-step>
 <!--
           <mat-step [completed]="reponseFrm.controls['renseignement1'].valid && reponseFrm.controls['renseignement3'].valid" label="Renseignement sur l’investisseur " class="col-md-12">
 
@@ -153,7 +154,8 @@
             </mat-step> -->
 
         </mat-vertical-stepper>
-        <button type="submit" class="btn btn-success" [disabled]="!reponseFrm.valid"><img src="../../assets/validation.png" alt="">Validation</button>
+        <button type="submit" class="btn btn-success" ><img src="../../assets/validation.png" alt="">Validation</button>
+        <!-- <button type="submit" class="btn btn-success" [disabled]="!reponseFrm.valid"><img src="../../assets/validation.png" alt="">Validation</button> -->
   </form>
 
 </div>

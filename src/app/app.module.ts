@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CompositionComponent } from './composition/composition.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,10 +20,10 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule, MatButtonModule, MatCheckboxModule, MatRadioModule, MatInputModule, MatSelectModule } from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import { BarRatingModule } from 'ngx-bar-rating';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { WindowRef } from './window-ref';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { CompositionComponent } from './composition/composition.component';
+
+import { MatDialogModule } from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { CompositionComponent } from './composition/composition.component';
     ReponseComponent,
     DashboardComponent,
     CompositionComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +49,11 @@ import { CompositionComponent } from './composition/composition.component';
     MatCheckboxModule,
     MatRadioModule,
     MatInputModule,
-    NgSelectModule
+    NgSelectModule,
+    MatDialogModule,
   ],
   providers: [ReponseService, WindowRef],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }

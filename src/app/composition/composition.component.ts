@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WindowRef } from '../window-ref';
 import * as zc from '@dvsl/zoomcharts';
 import { ReponseService } from '../reponse.service';
+import {Router, ActivatedRoute} from '@angular/router';
+;
 @Component({
   selector: 'app-composition',
   templateUrl: './composition.component.html',
@@ -9,10 +11,11 @@ import { ReponseService } from '../reponse.service';
 })
 export class CompositionComponent implements OnInit {
   private zc: any = zc;
-  url  = 'https://robo-advisor-back.herokuapp.com';
-  // url  = 'http://localhost:3000';
+  // url  = 'https://robo-advisor-back.herokuapp.com';
+  url  = 'http://localhost:3000';
 
-  constructor(private winRef: WindowRef, private _reponseService: ReponseService) {
+  profile: any;
+  constructor(private route: ActivatedRoute, private router: Router, private winRef: WindowRef, private _reponseService: ReponseService) {
      winRef.nativeWindow.ZoomChartsLicense = 'ZCP-2jt1vsq8o: ZoomCharts SDK for PeaQock';
 
     winRef.nativeWindow.ZoomChartsLicenseKey = '1a89ca2621b420a6ab144f910ccc8cf7895f869f01d4c4de4a' +
@@ -22,6 +25,18 @@ export class CompositionComponent implements OnInit {
     'ffd1448da030a3578143b62f1f4a0b0fe1d2efb1670416898d86369c5059d1db5acf457b07448' +
     '3f24d4db6b98767566eafef4b259f9e59a12bd38ea15be4f2c3d681606c9f695032892c19091c' +
     'a8d8af12f5dc21dbc6035dc647e945a17d39d67e17bbde56ce9311cab3d38d70e6db842771adc';
+
+    this.route.queryParams.subscribe(params => {
+
+      this.profile = params['profil'];
+      if(! this.profile){
+        this.router.navigateByUrl('/form');
+      }
+
+      // this.firstname = params["firstname"];
+      // this.lastname = params["lastname"];
+    });
+
    }
 
   ngOnInit() {
@@ -37,7 +52,7 @@ export class CompositionComponent implements OnInit {
           enabled: false
       }
     },
-    data: { url: this.url + '/api/comp' },
+    data: { url: this.url + '/api/profil/' + this.profile },
     labels: {enabled: false},
     legend: {
       enabled: true,

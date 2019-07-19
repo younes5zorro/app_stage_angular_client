@@ -8,8 +8,8 @@ export class ReponseService {
 
   result: any;
 
-  url = 'https://robo-advisor-back.herokuapp.com';
-  // const url = 'http://localhost:3000'
+  // url = 'https://robo-advisor-back.herokuapp.com';
+  url = 'http://localhost:3000';
 
   constructor(private _http: Http) { }
 
@@ -36,11 +36,21 @@ export class ReponseService {
     return this._http.get(this.url + '/api/reponse/' + id)
       .pipe(map(result => this.result = result.json()));
   }
+  delete_Reponse(id) {
+    return this._http.get(this.url + '/api/delete_reponse/' + id)
+      .pipe(map(result => this.result = result.json()));
+  }
+
+  update_montant_Reponse(post) {
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post(this.url + '/api/update', JSON.stringify(post), options)
+      .pipe(map(result => this.result = result.json()));
+  }
 
   insertReponse(post: Reponse) {
     const headers = new Headers({ 'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
-    console.log(post);
     return this._http.post(this.url + '/api/create', JSON.stringify(post), options)
       .pipe(map(result => this.result = result.json()));
   }
