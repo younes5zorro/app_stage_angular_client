@@ -285,7 +285,7 @@ export class FormComponent implements OnInit {
       // this._reponseService.insertReponse(reponse)
       this._reponseService.insertReponse(data)
         .subscribe(newReponse => {
-          console.log(newReponse);
+          // console.log(newReponse);
           // this.reponses.push(newReponse);
           this.profil = newReponse.profil;
           this.openDialog(newReponse._id);

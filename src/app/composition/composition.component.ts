@@ -11,8 +11,8 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class CompositionComponent implements OnInit {
   private zc: any = zc;
-  // url  = 'https://robo-advisor-back.herokuapp.com';
-  url  = 'http://localhost:3000';
+  url  = 'https://robo-advisor-back.herokuapp.com';
+  // url  = 'http://localhost:3000';
 
   profile: any;
   constructor(private route: ActivatedRoute, private router: Router, private winRef: WindowRef, private _reponseService: ReponseService) {

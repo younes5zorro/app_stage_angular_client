@@ -11,7 +11,7 @@ import * as html2canvas from 'html2canvas';
 export class AppComponent {
   title = 'app';
   message = '';
-  constructor(private _router: Router ) {
+  constructor(public _router: Router ) {
       _router.events.subscribe((url: any) => {
         if (url.url === '/form') {
           this.message = 'Profil investisseur';
