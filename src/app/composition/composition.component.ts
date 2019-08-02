@@ -3,7 +3,11 @@ import { WindowRef } from '../window-ref';
 import * as zc from '@dvsl/zoomcharts';
 import { ReponseService } from '../reponse.service';
 import {Router, ActivatedRoute} from '@angular/router';
-;
+
+import * as echarts from 'echarts';
+import ECharts = echarts.ECharts;
+import EChartOption = echarts.EChartOption;
+
 @Component({
   selector: 'app-composition',
   templateUrl: './composition.component.html',
@@ -11,10 +15,11 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class CompositionComponent implements OnInit {
   private zc: any = zc;
-  url  = 'https://robo-advisor-back.herokuapp.com';
-  // url  = 'http://localhost:3000';
+  // url  = 'https://robo-advisor-back.herokuapp.com';
+  url  = 'http://localhost:3000';
 
   profile: any;
+  actions:Array<string>=[] ;
   constructor(private route: ActivatedRoute, private router: Router, private winRef: WindowRef, private _reponseService: ReponseService) {
      winRef.nativeWindow.ZoomChartsLicense = 'ZCP-2jt1vsq8o: ZoomCharts SDK for PeaQock';
 
@@ -41,6 +46,7 @@ export class CompositionComponent implements OnInit {
 
   ngOnInit() {
     this.chargeDash();
+    this.getserie(this.profile)
   }
   chargeDash() {
     const PieChart = this.zc.PieChart;
@@ -73,6 +79,116 @@ export class CompositionComponent implements OnInit {
         enabled: true
     }
   });
+  }
+
+  chargeBar() {
+    const BarChart = this.zc.BarChart;
+    const chart = new BarChart({
+    container: document.getElementById('chartBarChart'),
+    interaction: {
+      mode: 'select',
+      resizing: {
+          enabled: false
+      }
+    },
+    data: { url: this.url + '/api/secteur/' + this.profile },
+    labels: {enabled: false},
+    legend: {
+      enabled: true,
+      numberOfColumns: 2,
+      equalizeRowsColumns: false, // entries in the next row or column will split by one
+      marker: {shape: 'circle', size: 30}
+    },
+    pie: {
+      innerRadius: 0
+      },
+    slice: {
+        expandableMarkStyle: {
+            lineWidth: 0
+        }
+    },
+    toolbar: {
+        fullscreen: true,
+        enabled: true
+    }
+  });
+  }
+
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  create_series(res){
+    const serie = [];
+    res.forEach(function (r) {
+      r.forEach(function (a,c) {
+
+
+      const letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var  i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+
+      const doc = {
+          data: {
+            index: c + 2,
+            aggregation: 'avg',
+          },
+          type: 'line',
+          name: a,
+          style: {
+              lineWidth: 3,
+              lineColor: color,
+          }
+      };
+      serie.push(doc);
+    });
+    });
+
+    return serie;
+  }
+
+  getserie(id){
+    const serie = [];
+    var acc ;
+    // this._reponseService.getActionbyuser(id)
+    // .subscribe(function (res) {
+    //     this.chargeLine(id,this.create_series(res));
+    // }
+    // );
+
+    var act = this._reponseService.getActionbyuser(id)
+    var ser = this.create_series(act);
+    this.chargeLine(id,ser);
+
+  }
+  chargeLine(id,ser) {
+    const TimeChart = this.zc.TimeChart;
+          const chart = new TimeChart ({
+            container: document.getElementById('chartLineChart'),
+            navigation : {
+              initialDisplayUnit: 'd'
+            },
+            area: { height: 350 },
+            legend: {
+            enabled: true
+          },
+          series: ser ,
+        data:
+        {
+          units: ['d'],
+          timestampInSeconds: true,
+          url: this.url + '/api/performance/' + id
+        }
+
+      });
+
   }
 
 }

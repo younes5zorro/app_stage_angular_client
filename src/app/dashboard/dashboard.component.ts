@@ -105,6 +105,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
 
     });
   }
+
   chargeCard(slg) {
 
     this.tweets = null;

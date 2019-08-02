@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
 
   profil: string;
   montant: string;
+  random: string;
 
   values = {
     tag: 'renseignement2',
@@ -248,7 +249,7 @@ export class FormComponent implements OnInit {
       if(result){
         this.montant = result;
         this._reponseService.update_montant_Reponse({'id': id,'montant': this.montant}).subscribe(upReponse => {});
-        this.router.navigate(['/composition'], { queryParams:  {profil: this.profil }, skipLocationChange: true});
+        this.router.navigate(['/composition'], { queryParams:  {profil: this.random }, skipLocationChange: true});
 
       } else{
         this._reponseService.delete_Reponse(id).subscribe(res => console.log(res));
@@ -288,6 +289,7 @@ export class FormComponent implements OnInit {
           // console.log(newReponse);
           // this.reponses.push(newReponse);
           this.profil = newReponse.profil;
+          this.random = newReponse.random;
           this.openDialog(newReponse._id);
           // this.router.navigate(['/composition'], { queryParams:  {profil: newReponse.profil}, skipLocationChange: true});
 
