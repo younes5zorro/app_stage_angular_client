@@ -18,8 +18,8 @@ export class CompositionComponent implements OnInit {
   //   height: 600
   // };
   private zc: any = zc;
-  // url  = 'https://robo-advisor-back.herokuapp.com';
-  url  = 'http://localhost:3000';
+  url  = 'https://robo-advisor-back.herokuapp.com';
+  // url  = 'http://localhost:3000';
 
   profile: any;
   actions:Array<string>=[] ;

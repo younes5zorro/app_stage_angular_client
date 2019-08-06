@@ -8,8 +8,8 @@ export class ReponseService {
 
   result: any;
 
-  // url = 'https://robo-advisor-back.herokuapp.com';
-  url = 'http://localhost:3000';
+  url = 'https://robo-advisor-back.herokuapp.com';
+  // url = 'http://localhost:3000';
 
   constructor(private _http: Http) { }
 
