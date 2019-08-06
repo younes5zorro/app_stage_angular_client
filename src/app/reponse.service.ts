@@ -58,4 +58,8 @@ export class ReponseService {
     return this._http.get(this.url + '/api/useraction/' + id)
       .pipe(map(result => this.result = result.json()));
   }
+  getPerformanceByUser(id) {
+    return this._http.get(this.url + '/api/performance/' + id)
+      .pipe(map(result => this.result = result.json()));
+  }
 }

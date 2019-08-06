@@ -6,7 +6,7 @@ import { FormComponent } from './form/form.component';
 import { ReponseComponent } from './reponse/reponse.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CompositionComponent } from './composition/composition.component';
-
+import { NgxEchartsModule } from 'ngx-echarts';
 const routes: Routes = [
   {
     path: '',

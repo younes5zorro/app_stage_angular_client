@@ -4,9 +4,7 @@ import * as zc from '@dvsl/zoomcharts';
 import { ReponseService } from '../reponse.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
-import * as echarts from 'echarts';
-import ECharts = echarts.ECharts;
-import EChartOption = echarts.EChartOption;
+import { EChartOption } from 'echarts';
 
 @Component({
   selector: 'app-composition',
@@ -14,12 +12,19 @@ import EChartOption = echarts.EChartOption;
   styleUrls: ['./composition.component.css']
 })
 export class CompositionComponent implements OnInit {
+
+  // chartOption: EChartOption;
+  // initOpts = {
+  //   height: 600
+  // };
   private zc: any = zc;
   // url  = 'https://robo-advisor-back.herokuapp.com';
   url  = 'http://localhost:3000';
 
   profile: any;
   actions:Array<string>=[] ;
+
+
   constructor(private route: ActivatedRoute, private router: Router, private winRef: WindowRef, private _reponseService: ReponseService) {
      winRef.nativeWindow.ZoomChartsLicense = 'ZCP-2jt1vsq8o: ZoomCharts SDK for PeaQock';
 
@@ -46,11 +51,24 @@ export class CompositionComponent implements OnInit {
 
   ngOnInit() {
     this.chargeDash();
-    this.getserie(this.profile)
+    this.chargeBar()
+
+    this._reponseService.getPerformanceByUser(this.profile)
+    .subscribe(res => {
+      // console.log(res);
+      this.chargeLine(res);
+      // this.createEchart(res);
+    });
+
+    // this.getserie(this.profile);
+    // this.getserie(this.profile)
   }
+
   chargeDash() {
     const PieChart = this.zc.PieChart;
     const chart = new PieChart({
+      area:{height:350},
+      title:{text:"Portfeuille"},
     container: document.getElementById('chartPieChart'),
     interaction: {
       mode: 'select',
@@ -61,14 +79,16 @@ export class CompositionComponent implements OnInit {
     data: { url: this.url + '/api/profil/' + this.profile },
     labels: {enabled: false},
     legend: {
-      enabled: true,
+      enabled: false,
       numberOfColumns: 2,
       equalizeRowsColumns: false, // entries in the next row or column will split by one
       marker: {shape: 'circle', size: 30}
     },
     pie: {
-      innerRadius: 0
-      },
+      innerRadius: 0,
+      style:{sliceColors:["#ff874f","#36855F","#FB7D30","#E73431","#884BBC","#09C9AC","#529BBC","#529B44"] },
+
+    },
     slice: {
         expandableMarkStyle: {
             lineWidth: 0
@@ -82,113 +102,117 @@ export class CompositionComponent implements OnInit {
   }
 
   chargeBar() {
-    const BarChart = this.zc.BarChart;
-    const chart = new BarChart({
+    const FacetChart = this.zc.FacetChart;
+    const chart = new FacetChart({
     container: document.getElementById('chartBarChart'),
-    interaction: {
-      mode: 'select',
-      resizing: {
-          enabled: false
-      }
+    interaction: {resizing:{enabled:false},mode:"select"},
+    area:{height:350},
+    style: {
+      // columnColors:[ "#ff8222", "#36BEFF", "#FBBD30", "#EE3431", "#894BBC", "#0EC9AC", "#524BBC" ]
     },
+    series: [
+            {
+                name: "",
+                style: {
+                    depth:10,
+                    fillColor: "#36BEFF"
+                }
+            }
+        ],
+        toolbar: {
+            fullscreen: true,
+            enabled: true
+        },
     data: { url: this.url + '/api/secteur/' + this.profile },
-    labels: {enabled: false},
-    legend: {
-      enabled: true,
-      numberOfColumns: 2,
-      equalizeRowsColumns: false, // entries in the next row or column will split by one
-      marker: {shape: 'circle', size: 30}
-    },
-    pie: {
-      innerRadius: 0
-      },
-    slice: {
-        expandableMarkStyle: {
-            lineWidth: 0
-        }
-    },
-    toolbar: {
-        fullscreen: true,
-        enabled: true
-    }
+    title:{text:"Secteurs"},
   });
   }
 
-  getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  create_series(res){
-    const serie = [];
-    res.forEach(function (r) {
-      r.forEach(function (a,c) {
+  chargeLine(res){
 
 
-      const letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var  i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-
-      const doc = {
-          data: {
-            index: c + 2,
-            aggregation: 'avg',
-          },
-          type: 'line',
-          name: a,
-          style: {
-              lineWidth: 3,
-              lineColor: color,
-          }
-      };
-      serie.push(doc);
-    });
-    });
-
-    return serie;
-  }
-
-  getserie(id){
-    const serie = [];
-    var acc ;
-    // this._reponseService.getActionbyuser(id)
-    // .subscribe(function (res) {
-    //     this.chargeLine(id,this.create_series(res));
-    // }
-    // );
-
-    var act = this._reponseService.getActionbyuser(id)
-    var ser = this.create_series(act);
-    this.chargeLine(id,ser);
-
-  }
-  chargeLine(id,ser) {
     const TimeChart = this.zc.TimeChart;
-          const chart = new TimeChart ({
-            container: document.getElementById('chartLineChart'),
-            navigation : {
-              initialDisplayUnit: 'd'
-            },
-            area: { height: 350 },
-            legend: {
-            enabled: true
-          },
-          series: ser ,
+    const chart = new TimeChart ({
+        title:{text:"Performance des Actifs"},
+        area:{height:500},
+        container: document.getElementById("chartLineChart"),
+        navigation : {
+          initialDisplayUnit: 'd'
+         },
+        legend: {
+          enabled: true
+        },
+        series:res.serie,
         data:
         {
-          units: ['d'],
-          timestampInSeconds: true,
-          url: this.url + '/api/performance/' + id
+            units: ['d'],
+            // timestampInSeconds: true,
+            preloaded: res.data
         }
-
-      });
-
+    });
   }
+
+  // createEchart(res) {
+  //   console.log(res)
+  //   console.log("res")
+  //   this.chartOption = {
+  //     title: {
+  //        text: 'Performance',
+  //    },
+  //     tooltip: {
+  //        trigger: 'axis'
+  //    },
+  //    legend: {
+  //        data:['tt','bb']
+  //    },
+
+  //    dataZoom: [{
+  //        type: 'inside',
+  //        start: 0,
+  //        end: 100
+  //    }, {
+  //        start: 0,
+  //        end: 10,
+  //        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+  //        handleSize: '80%',
+  //        handleStyle: {
+  //            color: '#fff',
+  //            shadowBlur: 3,
+  //            shadowColor: 'rgba(0, 0, 0, 0.6)',
+  //            shadowOffsetX: 2,
+  //            shadowOffsetY: 2
+  //        }
+  //    }],
+  //      xAxis: {
+  //          type: 'category',
+  //          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  //      },
+  //      yAxis: {
+  //          type: 'value'
+  //      },
+  //      series: [
+  //        {
+  //          data: [820, 932, 901, 934, 1290, 1330, 1320],
+  //          type: 'line',
+  //          name:'tt',
+  //      },
+  //      {
+  //        data: [10, 20, 30, null, 10, 88, 1320],
+  //        type: 'line',
+  //        name:'bb',
+  //    }
+  //    ]
+  //  };
+
+  // }
+
+
+    // var act = this._reponseService.getActionbyuser(id);
+    // this.createEchartAfricain();
+
+
+  // }
+
+
 
 }

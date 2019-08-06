@@ -1,0 +1,19 @@
+.composition{
+  /* padding-left: 100px; */
+  margin-left: 37px;
+}
+
+.piechart1{
+  width: 387px;
+  float: left;
+
+}
+.barchart1{
+  float: left;
+  width: 447px;
+    margin-left: 20px;
+}
+
+.section2{
+  clear: both;
+}

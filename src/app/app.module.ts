@@ -24,6 +24,9 @@ import { WindowRef } from './window-ref';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { MatDialogModule } from "@angular/material/dialog";
+
+import { NgxEchartsModule } from "ngx-echarts";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +54,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatInputModule,
     NgSelectModule,
     MatDialogModule,
+    NgxEchartsModule,
   ],
   providers: [ReponseService, WindowRef],
   bootstrap: [AppComponent],

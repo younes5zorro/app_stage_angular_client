@@ -249,7 +249,7 @@ export class FormComponent implements OnInit {
       if(result){
         this.montant = result;
         this._reponseService.update_montant_Reponse({'id': id,'montant': this.montant}).subscribe(upReponse => {});
-        this.router.navigate(['/composition'], { queryParams:  {profil: this.random }, skipLocationChange: true});
+        this.router.navigate(['/composition'], { queryParams:  {profil: this.random }});
 
       } else{
         this._reponseService.delete_Reponse(id).subscribe(res => console.log(res));
@@ -283,8 +283,8 @@ export class FormComponent implements OnInit {
         object7: 4,
         securite: 1
       };
-      // this._reponseService.insertReponse(reponse)
-      this._reponseService.insertReponse(data)
+      // this._reponseService.insertReponse(data)
+      this._reponseService.insertReponse(reponse)
         .subscribe(newReponse => {
           // console.log(newReponse);
           // this.reponses.push(newReponse);
